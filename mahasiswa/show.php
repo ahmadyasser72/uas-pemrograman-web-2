@@ -1,7 +1,6 @@
-
 <h4>Tambah Data Mahasiswa</h4>
 <a href="?page=mahasiswaAdd" class="btn btn-primary mb-4">Tambah Data</a>
-<a href="mahasiswa/print.php" class="btn btn-warning mb-4" target="_blank">Cetak</a>
+<a href="?page=mahasiswaCetak" class="btn btn-warning mb-4" target="_blank">Cetak</a>
 
 <table class="table table-bordered table-hover">
     <thead>
@@ -15,12 +14,12 @@
             <th>Action</th>
         </tr>
     </thead>
-    <tbody>	
+    <tbody>
         <?php
-            include 'connection.php';
-            $query = mysqli_query($con, "SELECT * FROM mahasiswa");
-            while ($data = mysqli_fetch_array($query)) {
-        ?>
+        include 'connection.php';
+        $query = mysqli_query($con, "SELECT * FROM mahasiswa");
+        while ($data = mysqli_fetch_array($query)) {
+            ?>
             <tr>
                 <td><?php echo $data['npm']; ?></td>
                 <td><?php echo $data['nama']; ?></td>
@@ -32,10 +31,11 @@
                 <td><?php echo $data['email']; ?></td>
                 <td>
                     <a class="btn btn-sm btn-success" href="?page=mahasiswaEdit&id=<?= $data['id']; ?>">Edit</a>
-                    <a class="btn btn-sm btn-danger" href="?page=mahasiswaDelete&id=<?= $data['id']; ?>" onclick="return confirm('Lanjutkan menghapus data ?')">Hapus </a>
+                    <a class="btn btn-sm btn-danger" href="?page=mahasiswaDelete&id=<?= $data['id']; ?>"
+                        onclick="return confirm('Lanjutkan menghapus data ?')">Hapus </a>
                 </td>
             </tr>
-        <?php
+            <?php
         }
         ?>
     </tbody>

@@ -1,12 +1,8 @@
 <?php
-$databaseHost     = "localhost";
-$databaseName     = "latihanphp-2024";
+$databaseHost = "localhost";
+$databaseName = "latihanphp-2024";
 $databaseUsername = "root";
-/* 
-config untuk windows 
 $databasePassword = "";
-*/
-$databasePassword = "root";
 
 $con = mysqli_connect("$databaseHost", "$databaseUsername", "$databasePassword", "$databaseName");
 

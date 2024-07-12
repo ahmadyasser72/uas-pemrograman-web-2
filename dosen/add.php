@@ -2,42 +2,31 @@
 include 'connection.php';
 
 if (isset($_POST['submit'])) {
-    $npm = $_POST['npm'];
+    $nidn = $_POST['nidn'];
     $nama = $_POST['nama'];
-    $jurusan = $_POST['jurusan'];
     $alamat = $_POST['alamat'];
     $email = $_POST['email'];
     $telepon = $_POST['telepon'];
 
-    $result = mysqli_query($con, "INSERT INTO mahasiswa(npm,nama,jurusan,alamat,email,telepon) VALUES('$npm','$nama','$jurusan','$alamat','$email','$telepon')");
+    $result = mysqli_query($con, "INSERT INTO dosen(nidn,nama,alamat,email,telepon) VALUES('$nidn','$nama','$alamat','$email','$telepon')");
 
-    echo "<script>window.location.href ='?page=mahasiswa';</script>";
+    echo "<script>window.location.href ='?page=dosen';</script>";
 }
 ?>
 
-<h4 class="mb-5">Tambah Data Mahasiswa</h4>
+<h4 class="mb-5">Tambah Data Dosen</h4>
 
 <form method="post">
     <div class="mb-3 row">
-        <label for="npm" class="col-sm-2 col-form-label">NPM</label>
+        <label for="nidn" class="col-sm-2 col-form-label">NIDN</label>
         <div class="col-sm-10">
-            <input type="text" name="npm" class="form-control" placeholder="Masukan nim...">
+            <input type="text" name="nidn" class="form-control" placeholder="Masukan NIDN...">
         </div>
     </div>
     <div class="mb-3 row">
         <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
         <div class="col-sm-10">
             <input type="text" name="nama" class="form-control" placeholder="Masukan nama lengkap...">
-        </div>
-    </div>
-    <div class="mb-3 row">
-        <label for="jurusan" class="col-sm-2 col-form-label">Jurusan</label>
-        <div class="col-sm-10">
-            <select class="form-select" name="jurusan">
-                <option value="-">- Pilih Jurusan-</option>
-                <option value="TI">Teknik Informatika</option>
-                <option value="SI">Sistem Informasi</option>
-            </select>
         </div>
     </div>
     <div class="mb-3 row">
@@ -53,7 +42,7 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="email" class="col-sm-2 col-form-label">email</label>
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
             <input type="email" name="email" class="form-control" placeholder="Masukan email...">
         </div>
@@ -62,7 +51,7 @@ if (isset($_POST['submit'])) {
     <div class="row">
         <div class="offset-md-2">
             <input type="submit" name="submit" value="Simpan" class="btn btn-primary">
-            <a href="?page=mahasiswa" class="btn btn-warning">Kembali</a>
+            <a href="?page=dosen" class="btn btn-warning">Kembali</a>
         </div>
     </div>
 </form>
